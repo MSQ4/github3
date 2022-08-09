@@ -13,6 +13,4 @@ jobs:
          env: 
           my_secret: ${{secret.my_secret }}
        - run: 
-            echo $my_secret
-
-            
+          echo $my_secret
