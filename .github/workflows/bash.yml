@@ -12,5 +12,5 @@ jobs:
        - name: run bash command 
          env: 
           my_secret: ${{secret.my_secret }}
-       - run: 
+       - run:
           'echo $my_secret'
