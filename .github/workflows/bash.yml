@@ -1,16 +1,21 @@
 name: first Bash
 
 on: 
-  pull_request:
-    branches: ["*"]
+  push:
+   branches: ["*"]
 
 jobs:
-    Bash:
-      runs-on: ubuntu-latest
-      steps:
-       - uses: actions/checkout@v3
-       - name: run bash command 
-         env: 
-          my_secret: ${{secret.my_secret }}
-       - run:
-          'echo $my_secret'
+  bash:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v3
+     - name: step 1 
+       env:
+        MY_SECRET: ${{ secret.MY_SECRET }}
+       run: | 
+        echo $MY_SECRET
+        touch step1.txt
+        echo "hi from step 1 "> step1.txt
+     - name: step 2
+       run: |
+         cat
